@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+/*
+ * Example uses:
+ *
+ * <div class="Grid">
+ *     <div class="Grid-cell u-size1of2"></div>
+ *     <div class="Grid-cell u-size1of2"></div>
+ *     <div class="Grid-cell u-size1of3"></div>
+ *     <div class="Grid-cell u-size1of3"></div>
+ * </div>
+ *
+ * <div class="Grid Grid--center">
+ *     <div class="Grid-cell u-size1of3"></div>
+ *     <div class="Grid-cell u-size1of3"></div>
+ * </div>
+ */
+
+/* Grid core
+   ========================================================================== */
+/**
+ * Grid container
+ * Must only contain `.Grid` or `.Grid-cell` components as children.
+ *
+ * 1. Ensure consistent default alignment. Switch to 'right' for rtl.
+ * 2. Protect against WebKit bug with optimizelegibility.
+ */
+
+.Grid {
+    @extend %p-spaceless;
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* 1 */
+    text-rendering: optimizespeed; /* 2 */
+}
+
+/**
+ * Child `grid` object adjustments
+ * Used for more complex fixed-fluid hybrid grids.
+ */
+
+.Grid > .Grid {
+    overflow: hidden;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/**
+ * Grid units
+ * No explicit width by default. Apply `.unit-x-y` classes.
+ *
+ * 1. Fundamentals of the non-float grid layout mechanism.
+ * 2. Controls vertical positioning of units.
+ * 3. Keeps content correctly aligned with the grid direction.
+ */
+
+.Grid-cell {
+    @extend %p-spaceless-child;
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block; /* 1 */
+    margin: 0;
+    padding: 0;
+    vertical-align: top; /* 2 */
+    text-align: left; /* 3 */
+}
+
+/* Grid modifiers
+   ========================================================================== */
+/**
+ * Grid gutters: 20px
+ * NOTE: this can trigger a horizontal scrollbar if the component is as wide as
+ * the viewport. Use padding on a container, or `overflow-x:hidden` to protect
+ * against it.
+ */
+
+.Grid--withGutter {
+    @include rem(margin-left, -($gutter-width / 2));
+    @include rem(margin-right, -($gutter-width / 2));
+}
+
+.Grid--withGutter > .Grid-cell {
+    @include rem(padding-left, ($gutter-width / 2));
+    @include rem(padding-right, ($gutter-width / 2));
+}
+
+/**
+ * Modifier: horizontally center all grid units
+ * Allows for automatic unit centering irrespective of the number of
+ * units in the grid.
+ */
+
+.Grid--alignCenter {
+    text-align: center;
+}
+
+/**
+ * Modifier: align horizontally all grid units to the left
+ */
+
+.Grid--alignLeft {
+    text-align: left;
+}
+
+/**
+ * Modifier: align horizontally all grid units to the right
+ */
+
+.Grid--alignRight {
+    text-align: right;
+}
+
+/* Grid cell modifiers
+   ========================================================================== */
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.Grid-cell--center {
+    display: block;
+    margin: 0 auto;
+}
+
+/**
+ * Modifier: align horizontally one unit to the left
+ * Set a specific unit to be horizontally on the left. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.Grid-cell--left {
+    display: block;
+    margin-right: auto;
+}
+
+/**
+ * Modifier: align horizontally one unit to the right
+ * Set a specific unit to be horizontally on the right. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.Grid-cell--right {
+    display: block;
+    margin-left: auto;
+}

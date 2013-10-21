@@ -1,0 +1,78 @@
+// =============================================================================
+// Colors
+// =============================================================================
+
+// Base colors
+// =============================================================================
+$red    : hsla(0,   100%, 50%, 1); // 0
+$orange : hsla(30,  100%, 50%, 1); // 30
+$yellow : hsla(60,  100%, 50%, 1); // 60
+$green  : hsla(120, 100%, 50%, 1); // 120
+$cyan   : hsla(180, 100%, 50%, 1); // 180
+$blue   : hsla(195, 100%, 50%, 1); // 240
+$pink   : hsla(330, 100%, 50%, 1); // 300
+
+$black : hsla(0, 0%, 0%,   1);
+$gray  : hsla(0, 0%, 50%,  1);
+$white : hsla(0, 0%, 100%, 1);
+
+$full   : 100%;
+$faded  : -40%;
+$off    : -70%;
+$slight : -90%;
+
+$hint : 90%;
+
+$default-tints  : 45% 60% 75%;
+$default-shades : 25% 50% 75%;
+
+$base-color: hsla(188, 36%, 47%, 1);
+$comp-color: adjust-hue($base-color, 180);
+
+// Color mappings
+// =============================================================================
+
+// Link palettes
+// ------------------
+$link-color        : $base-color;
+$hover-link-color  : darken($link-color, 10%);
+$focus-link-color  : $hover-link-color;
+$active-link-color : lighten($link-color, 10%);
+
+// Content selection color
+// -------------------------
+$selection-background-color : color($faded $base-color lightest);
+
+// Text-color
+// -------------------------
+$light-text-color  : color(lighter);
+$medium-text-color : $gray;
+$dark-text-color   : color(dark);
+$darker-text-color : color(darker);
+$quiet-text-color  : color(light);
+$white-text-color  : color($hint);
+
+// Backgrounds
+// -------------------------
+$lightest-background-color : color($white -1%);
+$lighter-background-color  : color(85%);
+$light-background-color    : color(lightest);
+$medium-background-color   : $gray;
+$dark-background-color     : color(dark);
+$darkest-background-color  : color($black 20%);
+
+// Buttons
+// -------------------------
+$default-button-background-color : $base-color;
+$default-button-text-color       : $white-text-color;
+
+// Alerts
+// -------------------------
+$info-background-color    : color(-20% $blue lightest);
+$info-text-color          : color($blue darkest);
+$success-background-color : color($faded $green lighter);
+$success-text-color       : color($green darkest);
+$error-background-color   : color($faded $red lighter);
+$error-text-color         : color($red darkest);
+$warning-background-color : color(-15% $yellow lightest);
+$warning-text-color       : color($yellow darkest);

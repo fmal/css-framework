@@ -1,0 +1,8 @@
+// SVG backgrounds
+// http://germanforblack.com/post/43975575422/protip-all-browsers-that-support-svg-background-images
+// =============================================================================
+
+@mixin svg-background-image($image) {
+    background-image: url("#{$image}.png");
+    background-image: none, url("#{$image}.svg");
+}

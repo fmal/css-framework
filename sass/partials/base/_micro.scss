@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Micro typographic styles
+   ========================================================================== */
+small {
+    @include font-size(_ms(-1));
+    line-height: 0;
+}
+
+b, strong {
+    /* Firefox defaults is b, strong { font-weight: bolder; } */
+    @extend %p-skolar700;
+}
+
+em, i, cite, q, address {
+    @extend %p-skolar400i;
+}
+
+s {
+    text-decoration: line-through;
+}
+
+pre {}

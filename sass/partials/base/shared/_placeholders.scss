@@ -1,0 +1,66 @@
+%p-sassMarginBottom {
+    @include rem(margin-bottom, $base-spacing-unit);
+}
+
+%p-doubledSassMarginBottom {
+    @include rem(margin-bottom, ($base-spacing-unit * 2));
+}
+
+/**
+ * Reset default list styling
+ */
+%p-unsetList {
+    list-style: none;
+    margin-left: 0;
+}
+
+/**
+ * Remove whitespace caused by inline-block
+ * https://github.com/yui/yui3/pull/468
+ */
+%p-spaceless {
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+}
+
+/*
+ * Opera hack
+ * .opera-only - is dummy selector
+ */
+.opera-only :-o-prefocus,
+%p-spaceless {
+    word-spacing: -.43em;
+}
+
+/**
+ * Reset the altered text defaults
+ */
+%p-spaceless-child {
+    text-rendering: auto;
+    word-spacing: normal;
+    letter-spacing: normal;
+}
+
+/**
+ * Dot placeholder (fake borders)
+ */
+
+// convert -size 1x1 xc:'#dfdfdf' dot-light.gif
+%p-dot--light {
+    background: {
+        image: url64("#{$img-directory}/dot-light.gif");
+        repeat: repeat-x;
+    }
+    /* IE fallback */
+   *background-image: url('#{$img-directory}/dot-light.gif');
+}
+
+// convert -size 1x1 xc:'#ebebeb' dot-lighter.gif
+%p-dot--lighter {
+    background: {
+        image: url64("#{$img-directory}/dot-lighter.gif");
+        repeat: repeat-x;
+    }
+    /* IE fallback */
+   *background-image: url('#{$img-directory}/dot-lighter.gif');
+}

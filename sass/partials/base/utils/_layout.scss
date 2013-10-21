@@ -1,0 +1,66 @@
+/**
+ * Add/remove floats
+ */
+.u-floatRight {
+    float: right !important;
+}
+.u-floatLeft {
+    float: left !important;
+}
+.u-floatNone {
+    float: none !important;
+}
+
+/**
+ * Contain floats
+ * http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.u-cf {
+    &:before,
+    &:after {
+        display: table;
+        line-height: 0;
+        content: " ";
+    }
+    &:after {
+        clear: both;
+    }
+
+    *zoom: 1;
+}
+
+.u-cfOverflow {
+    overflow: hidden;
+   *overflow: visible;
+    zoom: 1;
+}
+
+/**
+ * Clear element
+ */
+.u-clear {
+    clear: both;
+}
+
+/**
+ * Horizontal and vertical centering (remove the whitespace in HTML!)
+ *
+ * <div class="u-alignCenter"><div class="u-alignCenter-inner"></div></div>
+ */
+.u-alignCenter {
+    text-align: center;
+
+    &:before {
+        display: inline-block;
+        min-height: inherit;
+        max-height: inherit;
+        width: 0;
+        height: 100%;
+        content: "";
+        vertical-align: middle;
+    }
+}
+    .u-alignCenter-inner {
+        display: inline-block;
+        vertical-align: middle;
+    }

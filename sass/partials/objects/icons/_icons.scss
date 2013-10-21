@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Icon module
+   ========================================================================== */
+$icons: (
+    'facebook' '',
+    'gplus' '',
+    'lastfm' ''
+);
+
+@import "functions";
+@import "mixins";
+
+.Icon {
+    //@include icon;
+    @include icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: _em($half-spacing-unit/3);
+    }
+}
+
+@each $icon in $icons {
+    $name: nth($icon, 1);
+    .Icon--#{$name} {
+        @include icon('before', false, $name);
+    }
+}

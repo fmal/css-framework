@@ -1,0 +1,28 @@
+@mixin obj-nav {
+    list-style: none;
+    margin-left: 0;
+
+    > li {
+
+        &,
+        > a{
+            display: inline-block;
+           *display: inline;
+            zoom: 1;
+        }
+    }
+}
+
+@mixin obj-nav--block {
+    & {
+        @extend %p-spaceless;
+
+        > li {
+            @extend %p-spaceless-child;
+
+            > a {
+                padding: _em($half-spacing-unit);
+            }
+        }
+    }
+}

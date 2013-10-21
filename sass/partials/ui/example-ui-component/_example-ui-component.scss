@@ -1,0 +1,16 @@
+@import "functions";
+@import "mixins";
+@import "extends";
+
+.ExampleUiComponent {
+    color: $green;
+}
+
+.ExampleUiComponent--modifier {}
+
+// A subcomponent of an .example-widget module.
+// e.g. .example-widget__close-button
+.ExampleUiComponent-subComponent{}
+
+// A state specific to this module.
+.ExampleUiComponent--is-someState{}

@@ -1,0 +1,22 @@
+/* ==========================================================================
+   UI component rules
+   ========================================================================== */
+/**
+ * Naming convention:
+ *
+ * `.ComponentName`
+ * `.ComponentName--modifierName`
+ * `.ComponentName-subComponent`
+ * `.ComponentName-subComponent--modifierName`
+ *
+ * E.g.:
+ *
+ * .Person{}
+ * .Person--woman{}
+ *     .Person-hand{}
+ *     .Person-hand--left{}
+ *     .Person-hand--right{}
+ */
+
+@import "example-ui-component/example-ui-component";
+//@import "../third-party/magnific-popup";

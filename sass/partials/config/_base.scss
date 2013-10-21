@@ -1,0 +1,37 @@
+// =============================================================================
+// Base stuff
+// =============================================================================
+
+$browser-default-font-size : 16;
+
+$base-font-size    : $browser-default-font-size;
+$base-line-height  : $base-font-size * 1.5; // 24px
+$line-height-ratio : $base-line-height / $base-font-size;
+
+$type-ratio: $fourth;
+
+// Default directories
+// =============================================================================
+// background: url('#{$img-directory}/img.jpg') 0 0 no-repeat;
+// $img-directory     : "../img";
+$img-directory     : "img";
+$webfont-directory : "../fonts";
+
+// Use print stylesheet?
+// =============================================================================
+$print-styles: false;
+
+// Font settings
+// =============================================================================
+$body-font-family: "skolar-n4", "skolar", $georgia-heading;
+$body-font-weight: 400;
+
+$typekit-fonts:     "skolar", "freight-sans-pro";
+$typekit-fallbacks:  $georgia-heading,  $helvetica;
+
+//$headline-font-family : $body-font-family;
+//$headline-font-weight : 700;
+
+// Borders
+// -------------------------
+$standard-border-radius: 6;

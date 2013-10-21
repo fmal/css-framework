@@ -1,0 +1,4 @@
+// Modular scale
+@function _ms($increment, $value: $base-font-size, $ratio: $type-ratio) {
+    @return floor(modular-scale($value, $increment, $ratio));
+}

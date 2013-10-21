@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Globaly applicable state rules
+   ========================================================================== */
+
+/**
+ * Visibility classes
+ */
+.is-hidden--bpS {
+    @include crp-Media-max-width($crp-Media-size-s - 1) {
+        display: none;
+    }
+}
+
+.is-hidden--bpM {
+    @include crp-Media-max-width($crp-Media-size-m - 1) {
+        display: none;
+    }
+}
+
+.is-hidden--bpL {
+    @include crp-Media-max-width($crp-Media-size-l - 1) {
+        display: none;
+    }
+}
+
+.is-visible--bpS {
+    @include crp-Media-s {
+        display: none;
+    }
+}
+
+.is-visible--bpM {
+    @include crp-Media-m {
+        display: none;
+    }
+}
+
+/**
+ * Hide/show elements
+ */
+.is-hidden {
+    display: none !important;
+    visibility: hidden;
+}
+.is-visible {
+    display: block;
+    visibility: visible;
+}
+
+.is-invisible {
+    visibility: hidden;
+}
+
+.is-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}

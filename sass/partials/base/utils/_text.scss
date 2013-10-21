@@ -1,0 +1,66 @@
+/**
+ * Image replacement (replacing a text element with an image)
+ */
+.u-ir {
+    overflow: hidden;
+    border: 0;
+    background-color: transparent;
+    font: 10px/1 a;
+    *text-indent: -9999px;
+
+    &:before {
+        display: block;
+        width: 0;
+        height: 150%;
+        content: "";
+    }
+}
+
+/**
+ * Text meant only for screen readers
+ */
+.u-textAssistive {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/**
+ * Make an ellipsis in case the string is too long for its container
+ *
+ * Set the width of the .ellipsis element to suit your needs
+ */
+.u-textEllipsis {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.u-textLight {
+    font-weight: 300 !important;
+}
+.u-textNormal {
+    font-weight: 400 !important;
+}
+.u-textSemiBold {
+    font-weight: 600 !important;
+}
+
+/**
+ * Text alignment
+ */
+.u-textLeft {
+    text-align: left !important;
+}
+.u-textCenter {
+    text-align: center !important;
+}
+.u-textRight {
+    text-align: right !important;
+}
+
+.u-textMute {
+    color: $medium-text-color;
+}

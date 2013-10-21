@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Webfonts / Iconfonts
+   ========================================================================== */
+@import "mixins";
+
+/**
+ * Google Web Fonts
+ */
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,600&subset=latin,latin-ext);
+
+//@include font-face('Icons', '../fonts/icons/icons');
+
+//@include web-font('SSSocial', 'ss-social-circle', $inline-woff: true);
+
+/**
+ * Fade webfonts
+ */
+@include web-font-fade-in($selector: '.fr-wf');

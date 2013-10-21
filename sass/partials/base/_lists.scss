@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+ul {
+    list-style: square;
+}
+
+nav {
+    ul,
+    ol {
+        list-style: none;
+    }
+}
+
+/**
+ * Remove vertical spacing from nested lists.
+ */
+li {
+    & > ul,
+    & > ol,
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Button component
+   ========================================================================== */
+.Button {
+    @include line-and-height($base-spacing-unit*2);
+    display: inline-block;
+    margin: 0;
+    padding: _em(0 $half-spacing-unit);
+    border: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+}
+
+.Button--default {
+    background-color: $default-button-background-color;
+    border-radius: _em($standard-border-radius);
+    text-shadow: 0 1px 1px color(darkest, .35);
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        color: $default-button-text-color;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: color($default-button-background-color 20%);
+        box-shadow: 0 1px 2px color(darkest, .25);
+    }
+
+    &:active {
+        background-color: color($default-button-background-color -2%);
+        box-shadow: inset 0 1px 2px color(darkest, .25);
+    }
+}

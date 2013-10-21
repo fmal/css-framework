@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+$h1-font-size: _ms(3); // .bigH
+//$h1-line-height: $base-line-height * 3;
+$h1-line-height: $base-line-height * 2; // .bigH
+$h2-font-size: _ms(2); // .H
+$h2-line-height: $base-line-height * 2; // .H
+$h3-font-size: _ms(1); // .subH
+$h3-line-height: $base-line-height * 2; // .subH
+
+/**
+ * Font size setting
+ * 16px @ 1:1.333 (http://modularscale.com/scale/?px1=16&ra1=1.333)
+ * http://j.mp/sUvKuN
+ */
+h1, .BigH {
+    @include font-size($h1-font-size);
+    @include line-height($h1-font-size, $h1-line-height);
+}
+h2, .H {
+    @include font-size($h2-font-size);
+    @include line-height($h2-font-size, $h2-line-height);
+}
+h3, .SubH {
+    @include font-size($h3-font-size);
+    @include line-height($h3-font-size, $h3-line-height);
+    margin-bottom: 0;
+}

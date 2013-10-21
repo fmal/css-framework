@@ -1,0 +1,10 @@
+// =============================================================================
+// Typekit fonts
+// =============================================================================
+
+// Must include fallbacks for EACH typekit font — set them each as variables
+$typekit-fonts:     "ff-tisa-web-pro", "source-sans-pro" !default;  // index [1, 2]
+$typekit-fallbacks:  $georgia-heading,  $lucida-grande !default;
+
+@import "mixins";
+@import "extends";

@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border: 0;
+    /* Prevent a gap from showing below images in some browsers */
+    vertical-align: middle;
+}

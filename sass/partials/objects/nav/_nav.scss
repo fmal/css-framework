@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Nav component
+   ========================================================================== */
+@import "mixins";
+
+.Nav {
+    @extend .u-cf;
+    @include obj-nav;
+}
+
+.Nav--stacked {
+    > li {
+        display: list-item;
+
+        > a {
+            display: block;
+        }
+    }
+}
+
+.Nav--block {
+    @include obj-nav--block;
+}

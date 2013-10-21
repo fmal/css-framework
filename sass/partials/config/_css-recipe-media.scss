@@ -1,0 +1,14 @@
+// =============================================================================
+// Media queries shortcuts settings
+// @see http://j.mp/15IZJHU
+// =============================================================================
+
+$crp-Media-debug: false;
+
+// Major Breakpoints (set in px)
+$crp-Media-size-s  : 480;
+$crp-Media-size-m  : 768; //$max-medium-bp: $medium-bp - 1;
+$crp-Media-size-l  : 992;
+$crp-Media-size-xl : 1200;
+//$crp-Media-size-m2
+//$crp-Media-size-xl-2

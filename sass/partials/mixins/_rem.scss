@@ -1,0 +1,19 @@
+// Mixin for returning pixel and rem values
+// =============================================================================
+@mixin rem($property, $values) {
+    $px-values: ();
+    $rem-values: ();
+
+    @each $value in $values {
+        @if $value == 0 {
+            $px-values: append($px-values, $value);
+            $rem-values: append($rem-values, $value);
+        } @else {
+            $px-values: append($px-values, _px($value));
+            $rem-values: append($rem-values, _rem($value));
+        }
+    }
+
+    #{$property}: #{$px-values};
+    #{$property}: #{$rem-values};
+}

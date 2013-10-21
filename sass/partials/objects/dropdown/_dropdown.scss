@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Dropdown component
+   ========================================================================== */
+@import "mixins";
+
+.Dropdown {
+    @include obj-dropdown;
+}
+
+.with-Dropdown {
+    position: relative;
+
+    &:hover > .Dropdown {
+        max-height: 999px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

@@ -1,0 +1,17 @@
+/**
+ * Font-face weighs and styles classes
+ * (Extend with SASS)
+ */
+%p-skolar400 {
+    @include tk-font(400, normal);
+}
+%p-skolar400i {
+    @include tk-font(400, italic);
+}
+%p-skolar700 {
+    @include tk-font(700, normal);
+}
+
+%p-freightSansPro600 {
+    @include tk-font(600, normal, 2);
+}

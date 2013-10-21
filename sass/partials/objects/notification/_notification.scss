@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Notification component
+   ========================================================================== */
+.Notification {
+    @extend %p-sassMarginBottom;
+    position: relative;
+    padding: _em($half-spacing-unit $base-spacing-unit);
+    border-radius: _em($standard-border-radius);
+}
+
+.Notification--success {
+    background-color: $success-background-color;
+    box-shadow: inset 0 0 0 1px color($success-background-color dark);
+    color: $success-text-color;
+}
+
+.Notification--error {
+    background-color: $error-background-color;
+    box-shadow: inset 0 0 0 1px color($error-background-color dark);
+    color: $error-text-color;
+}
+
+.Notification--info {
+    background-color: $info-background-color;
+    box-shadow: inset 0 0 0 1px color($info-background-color dark);
+    color: $info-text-color;
+}
+
+.Notification--warning {
+    background-color: $warning-background-color;
+    box-shadow: inset 0 0 0 1px color($warning-background-color dark);
+    color: $warning-text-color;
+}

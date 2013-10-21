@@ -1,0 +1,6 @@
+// Make line-height equal to an element's height
+
+@mixin line-and-height($height, $font-size: $base-font-size, $minus: 0) {
+    line-height: calc-line-height($font-size, ($height - $minus));
+    height: _em($height);
+}

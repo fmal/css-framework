@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Shared
+   ========================================================================== */
+@import "typekit/typekit";
+@import "placeholders";
+
+h1, .BigH,
+h2, .H,
+h3, .SubH {
+    @extend %p-freightSansPro600;
+    color: $darker-text-color;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga", "kern";
+}
+
+h1, h2, hgroup,
+ul, ol, dl, blockquote, p, pre, table, fieldset, figure, hr {
+    @extend %p-sassMarginBottom;
+}
+
+ul, ol, dl, p, blockquote {
+    hyphens: auto;
+}
+
+ul, ol, dd {
+    @include rem(margin-left, ($base-spacing-unit * 2));
+}

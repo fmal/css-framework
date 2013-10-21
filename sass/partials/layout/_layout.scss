@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Layout rules
+   ========================================================================== */
+
+.l-siteWrapper {
+    position: relative;
+}
+
+.l-container {
+    margin: 0 auto;
+    padding: _em(0 $base-spacing-unit);
+    max-width: _em(864);
+    position: relative;
+}

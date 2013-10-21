@@ -1,0 +1,30 @@
+/* Dimension utilities
+   ========================================================================== */
+@include proportional-units(
+    2 3 4,
+    $class-slug: 'u-size'
+);
+
+@include crp-Media-s {
+    @include proportional-units(
+        2 3 4 6,
+        $class-slug: 'u-size',
+        $modifier: '--bpS'
+    );
+}
+
+@include crp-Media-m {
+    @include proportional-units(
+        2 3 4 6,
+        $class-slug: 'u-size',
+        $modifier: '--bpM'
+    );
+}
+
+@include crp-Media-xl {
+    @include proportional-units(
+        3,
+        $class-slug: 'u-size',
+        $modifier: '--bpXl'
+    );
+}

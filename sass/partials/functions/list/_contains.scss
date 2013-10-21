@@ -1,0 +1,8 @@
+// Check if a list contains a value
+@function contains($list, $value) {
+    @if type-of($list) == list {
+        @return not not index($list, $value);
+    } @else {
+        @return $list == $value;
+    }
+}

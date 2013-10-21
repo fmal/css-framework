@@ -1,0 +1,10 @@
+// Typography mixins
+// =============================================================================
+
+@mixin font-size($font-size: $base-font-size) {
+    font-size: _px($font-size);
+    font-size: _rem($font-size);
+}
+@mixin line-height($font-size, $line-height: $base-line-height) {
+    line-height: calc-line-height($font-size, $line-height);
+}

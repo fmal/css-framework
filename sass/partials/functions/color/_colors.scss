@@ -1,0 +1,111 @@
+// Color functions (from https://github.com/ericam/accoutrement)
+// =============================================================================
+
+// Set the default mixing intervals for use in color stacks.
+$default-amounts : 20% 40% 60% 70% 80% !default;
+$default-tints   : $default-amounts !default;
+$default-shades  : $default-amounts !default;
+
+// Returns a list of mixed colors at given intervals
+// based on two initial source colors.
+//
+// color-stack($main, $second [, $amounts])
+// - $main    : The main color this stack is based on.
+// - $second  : The color to be mixed in at varrying amounts.
+// - $amounts : Optional list of percentage mix intervals.
+@function color-stack($main, $second, $amounts: $default-amounts) {
+    $stack: $main;
+
+    @each $amount in $amounts {
+        $stack: join($stack, mix($second, $main, $amount));
+    }
+
+    @return $stack;
+}
+
+@function tint-stack($color, $amounts: $default-tints) {
+    @return color-stack($color, #fff, $amounts);
+}
+@function shade-stack($color, $amounts: $default-shades) {
+    @return color-stack($color, #000, $amounts);
+}
+
+// Managing Colors
+
+// Returns a given tint or shade of a color,
+// with options for changing saturation and alpha channels as well.
+//
+// color($color [, $alpha, $tints, $shades])
+// - $color   : The color to work from (See "Parsing Colors" detail below)
+// - $tints   : Optional list of percentage tint amounts.
+// - $shades  : Optional list of percentage shade amounts.
+//
+// Parsing Colors: $color == $saturation $color $tint-shade
+// - Any color value will be used as the base color.
+// - Any percentage preceeding the color will scale saturation.
+// - Any intiger, percentage, or keyword will change tint/shade:
+//   - Intigers step through your list of tint/shade amounts.
+//   - Percentages are used directly as tint/shade amounts.
+//   - Positive numbers tint, negative numbers scale.
+//   - Keywords light/lighter/lightest & dark/darker/darkest
+//     use the first, middle, and last amounts in a stack.
+@function color(
+    $color,
+    $alpha: 1,
+    $tints: $default-tints,
+    $shades: $default-shades
+) {
+    $saturation: false;
+    $lightness: false;
+    $hue: hsl(0, 0%, 50%);
+    $has-hue: false;
+    $index: 0;
+
+    @each $arg in $color {
+        @if type-of($arg) == 'color' {
+            $hue: $arg;
+            $has-hue: true;
+        }
+        @if type-of($arg) == 'number' {
+            @if unit($arg) != '' {
+                @if $has-hue or length($color) == 1 { $lightness: $arg; }
+                @else{ $saturation: $arg; }
+            }
+            @else { $index: $arg; }
+        }
+        @if type-of($arg) == 'string' {
+            $tint-length  : length($tints);
+            $tint-half    : floor($tint-length / 2);
+            $shade-length : length($shades);
+            $shade-half   : floor($shade-length / 2);
+            @if $arg == 'light' { $index: 1; }
+            @if $arg == 'lighter' { $index: if($tint-half < 2, 2, $tint-half); }
+            @if $arg == 'lightest' { $index: $tint-length; }
+            @if $arg == 'dark' { $index: -1; }
+            @if $arg == 'darker' { $index: if($shade-half < 2, -2, - $shade-half); }
+            @if $arg == 'darkest' { $index: - $shade-length; }
+        }
+    }
+
+    @if $lightness and $lightness != 0 {
+        @if $lightness > 0 { $hue: tint($hue, $lightness); }
+        @else { $hue: shade($hue, abs($lightness)); }
+    } @else if $index and $index != 0 {
+        $color-stack: compact();
+        @if $index > 0 {
+            $index: $index + 1;
+            $color-stack: tint-stack($hue, $tints);
+        } @else {
+            $index: abs($index) + 1;
+            $color-stack: shade-stack($hue, $shades);
+        }
+        @if $index <= length($color-stack) {
+            $hue: nth($color-stack, $index);
+        } @else {
+            @warn "You don't have #{$index - 1} colors in this stack";
+        }
+    }
+
+    @if $saturation { $hue: scale-color($hue, $saturation: $saturation); }
+    @return rgba($hue, $alpha);
+}

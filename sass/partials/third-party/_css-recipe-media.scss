@@ -1,0 +1,230 @@
+//
+// Media queries shortcuts
+//
+$crp-Media-debug: false !default;
+$crp-Media-debugSelector: "body:before" !default;
+
+// Wrapper for IE trick from http://jakearchibald.github.com/sass-ie/
+// disabled by default
+$crp-Media-fix-width:  false !default;
+$crp-Media-fix-height: false !default;
+
+// default define to work corretly with test here http://www.responsinator.com/
+$crp-Media-size-s: 30em !default;
+$crp-Media-size-m: 50em !default;
+$crp-Media-size-l: 65em !default;
+$crp-Media-size-xl: 80em !default;
+
+@mixin crp-Media-fix($value, $prop: 'width', $query: 'min', $media-type: 'all')
+{
+    $crp-Media-fix: $crp-Media-fix-width;
+    @if ($prop == 'height')
+    {
+        $crp-Media-fix: $crp-Media-fix-height;
+    }
+
+    // If we're outputting for a fixed media query set...
+    @if $crp-Media-fix
+    {
+        // ...and if we should apply these rules
+        @if $query == 'min'
+        {
+            @if $crp-Media-fix >= $value
+            {
+                @content;
+            }
+        }
+        @else
+        {
+            @if $query == 'max'
+            {
+                @if $crp-Media-fix < $value
+                {
+                    @content;
+                }
+            }
+            @else
+            {
+                @warn "#{error("crp-Media-fix need a min or a max for $query")}";
+            }
+        }
+    }
+    @else
+    {
+        // Otherwise, output it using a regular media query
+        @if $media-type == 'screen'
+        {
+            @media #{$media-type} and (#{$query}-#{$prop}: _em($value, $browser-default-font-size))
+            {
+                @content;
+            }
+        }
+        @else {
+            @media (#{$query}-#{$prop}: _em($value, $browser-default-font-size))
+            {
+                @content;
+            }
+        }
+    }
+}
+
+//
+// Media min, max & gap
+//
+@mixin crp-Media-min($min-size, $prop: 'width') {
+    @include crp-Media-fix($min-size, $prop) { @content; }
+}
+
+@mixin crp-Media-max($max-size, $prop: 'width') {
+    @include crp-Media-fix($max-size, $prop, 'max') { @content; }
+}
+
+@mixin crp-Media-gap($min-size, $max-size, $prop: 'width') {
+    @if $crp-Media-fix {
+        @if $crp-Media-fix >= $min-size and $crp-Media-fix <= $max-size {
+            @content;
+        }
+    }
+    @else {
+        @media (min-#{$prop}: _em($min-size, $browser-default-font-size)) and (max-#{$prop}: _em($max-size, $browser-default-font-size)) { @content; }
+    }
+}
+
+//
+// Media Queries for width
+//
+
+@mixin crp-Media-min-width($min-width) {
+    @include crp-Media-min($min-width) { @content; }
+}
+
+@mixin crp-Media-max-width($max-width) {
+    @include crp-Media-max($max-width) { @content; }
+}
+
+@mixin crp-Media-gap-width($min-width, $max-width) {
+    @include crp-Media-gap($min-width, $max-width) { @content; }
+}
+
+//
+// Media Queries for Height
+//
+
+@mixin crp-Media-min-height($min-height) {
+    @include crp-Media-min($min-height, 'height') { @content; }
+}
+
+@mixin crp-Media-max-height($max-height) {
+    @include crp-Media-max($max-height, 'height') { @content; }
+}
+
+@mixin crp-Media-gap-height($min-height, $max-height) {
+    @include crp-Media-gap($min-height, $max-height, 'height') { @content; }
+}
+
+@mixin crp-Media-s() { @include crp-Media-min($crp-Media-size-s) { @content; } }
+@mixin crp-Media-m() { @include crp-Media-min($crp-Media-size-m) { @content; } }
+@mixin crp-Media-l() { @include crp-Media-min($crp-Media-size-l) { @content; } }
+@mixin crp-Media-xl() { @include crp-Media-min($crp-Media-size-xl) { @content; } }
+
+@mixin crp-Media-debug {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    padding: .4em 1em;
+
+    color: #fff;
+    background: rgba(#f00, .4);
+    text-shadow: 0 -1px 0 rgba(#000, .8);
+    border-radius: 0 3px 0 0;
+
+    content: "Screen XS";
+    @include crp-Media-s { content: "* Screen S *"; }
+    @include crp-Media-m { content: "** Screen M **"; }
+    @include crp-Media-l { content: "*** Screen L ***"; }
+    @include crp-Media-xl { content: "**** Screen XL ****"; }
+}
+
+@if ($crp-Media-debug) {
+  #{$crp-Media-debugSelector} {
+    @include crp-Media-debug;
+  }
+}
+
+//
+// Orientation (portrait/horizontal & landscape/vertical)
+//
+
+@mixin crp-Media-portrait {
+    @media (orientation: portrait) { @content; }
+}
+
+@mixin crp-Media-landscape {
+    @media (orientation: landscape) { @content; }
+}
+
+//
+// Media Queries for (High) resolution screen (like "retina" display)
+//
+
+$crp-Media-screen-default-dpi: 96 !default;
+$crp-Media-pixel-ratio-breakpoint: 1.5 !default;
+
+// Allow you to add some @content depending on the resolution of the screen.
+// Nice to change background image for highres screen.
+// (Specifying resolution using ddpx seems a nice idea (dots per px)
+// http://www.w3.org/TR/css3-values/#resolution )
+// $ratio dots per 'px' screen you want to scope
+// $minOrMax min or max resolution ?
+@mixin crp-Media-resolution($ratio: $crp-Media-pixel-ratio-breakpoint, $minOrMax: 'min') {
+	@media	(-webkit-#{$minOrMax}-device-pixel-ratio: $ratio),
+			(#{$minOrMax}-resolution: #{$crp-Media-screen-default-dpi*$ratio}dpi) {
+	// futur proof code
+	// @media only screen and (#{$minOrMax}-resolution: #{$ratio}dppx) {
+		// some hi-res css
+		@content;
+	}
+}
+
+// Allow you to add some @content depending on the pixel-ratio of the screen.
+// Nice to change background image for highres screen.
+// Prefer using crp-Media-resolution() for a shorter output with probably the same behavior.
+// $ratio dots per 'px' screen you want to scope
+// $minOrMax min or max resolution ?
+@mixin crp-Media-pixel-ratio($ratio: $crp-Media-pixel-ratio-breakpoint, $minOrMax: 'min') {
+	$fractionCoef: $ratio*2;
+	@media	(-webkit-#{$minOrMax}-device-pixel-ratio: $ratio),
+			(-moz-#{$minOrMax}-device-pixel-ratio: $ratio),
+			(-o-#{$minOrMax}-device-pixel-ratio: #{$fractionCoef}/2),
+			(#{$minOrMax}-device-pixel-ratio: $ratio) {
+		@content;
+	}
+}
+
+// crp-Media-resolution() shortcut
+// Allow you to add some @content for high resolution screen.
+// $ratio dots per 'px' screen you want to scope
+@mixin crp-Media-highres($ratio: $crp-Media-pixel-ratio-breakpoint) {
+	@include crp-Media-pixel-ratio($ratio, 'min') {
+		@content;
+	}
+}
+
+//
+// Media queries for javascript
+//
+// You can use this snippet
+// var size = window.getComputedStyle(document.body,':after').getPropertyValue('content');
+// if (size == 'widescreen') {
+//     // code for 'widescreen' !
+// }
+//
+@mixin crp-Media-for-js($name, $crp-Media) {
+	@media ($crp-Media) {
+		body:after {
+			content: "#{$name}";
+			display: none;
+		}
+	}
+}
