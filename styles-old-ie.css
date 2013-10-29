@@ -460,8 +460,6 @@ html {
   min-width: 20em;
   height: 100%;
   background-color: white;
-  background-image: -webkit-linear-gradient(left, #ebebeb, white 13%, white 87%, #ebebeb);
-  background-image: linear-gradient(to right, #ebebeb, white 13%, white 87%, #ebebeb);
   color: #606060;
   font-weight: 400;
   font-style: normal;
@@ -474,11 +472,6 @@ html {
 html,
 body {
   min-height: 100%;
-}
-
-.custom-background > body {
-  background-image: url("data:image/gif;base64,R0lGODlhAgACAIABAAAAAERERCH5BAEAAAEALAAAAAACAAIAAAICRF4AOw==");
-  background-attachment: fixed;
 }
 
 ::-moz-selection {
@@ -948,6 +941,10 @@ dd {
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  -ms-hyphens: none;
 }
 
 .u-textLight {

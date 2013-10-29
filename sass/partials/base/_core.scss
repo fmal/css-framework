@@ -35,25 +35,11 @@ html {
 
     @include crp-Media-m {
         font-size: _pc($base-font-size + 2);
-        background-image: #{ "linear" }-gradient(
-            to right,
-            $lighter-background-color,
-            $white 13%,
-            $white 87%,
-            $lighter-background-color
-        );
     }
 }
 html,
 body {
     min-height: 100%;
-}
-
-.custom-background > body {
-    @include crp-Media-fix($crp-Media-size-m, $media-type: 'screen') {
-        background-image: url("data:image/gif;base64,R0lGODlhAgACAIABAAAAAERERCH5BAEAAAEALAAAAAACAAIAAAICRF4AOw==");
-        background-attachment: fixed;
-    }
 }
 
 ::-moz-selection {

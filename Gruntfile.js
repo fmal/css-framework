@@ -91,8 +91,19 @@ module.exports = function(grunt) {
                 options: {
                     restructure: true
                 },
-                src: '<%= path.styles %>/styles.css',
+                src: '<%= path.styles %>/cmq/styles.css',
                 dest: '<%= path.styles %>/styles.min.css'
+            }
+        },
+
+        cmq: {
+            options: {
+                log: false
+            },
+            target: {
+                files: {
+                    '<%= path.styles %>/cmq': ['<%= path.styles %>/styles.css']
+                }
             }
         },
 
@@ -106,7 +117,7 @@ module.exports = function(grunt) {
 
     tasks = {
         "default": ['sass', 'autoprefixer:styles', 'csscomb'],
-        release: ['sass', 'autoprefixer', 'csscomb', 'csso']
+        release: ['sass', 'autoprefixer', 'csscomb', 'cmq', 'csso']
     };
 
     grunt.registerTask('default', tasks["default"]);

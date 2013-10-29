@@ -2,5 +2,6 @@
 .sass-cache/
 node_modules/
 /sass/bourbon/
+cmq/
 *.sublime-project
 *.sublime-workspace
