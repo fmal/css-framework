@@ -26,6 +26,14 @@
 }
 
 /**
+ * Text hyphenation
+ */
+.u-textHyphenate {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/**
  * Make an ellipsis in case the string is too long for its container
  *
  * Set the width of the .ellipsis element to suit your needs
