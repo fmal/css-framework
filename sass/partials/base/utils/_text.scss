@@ -73,3 +73,27 @@
 .u-textMute {
     color: $medium-text-color;
 }
+
+/**
+ * Expose text (http://v.gd/fqIiTg)
+ * Hides/shows text (use case: "read more" link)
+ *
+ * When `u-textExposed` has class `u-textExposed--expose`:
+ * Shows `u-textExposed-show`
+ * Hides `u-textExposed-hide`
+ */
+.u-textExposed {
+    display: inline;
+}
+.u-textExposed-hide {}
+.u-textExposed-show {
+    display: none;
+}
+.no-js .u-textExposed-hide,
+.u-textExposed--expose .u-textExposed-hide {
+    display: none;
+}
+.no-js .u-textExposed-show,
+.u-textExposed--expose .u-textExposed-show {
+    display: inline;
+}
