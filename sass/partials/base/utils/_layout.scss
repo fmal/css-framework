@@ -29,10 +29,21 @@
     *zoom: 1;
 }
 
-.u-cfOverflow {
+/**
+ * New block formatting context
+ * Element won't wrap under floats. It will also contain any floated children.
+ */
+.u-bfc {
     overflow: hidden;
    *overflow: visible;
-    zoom: 1;
+   *zoom: 1;
+}
+
+.u-bfcAlt {
+    display: table-cell;
+    width: 10000px;
+   *width: auto;
+   *zoom: 1;
 }
 
 /**
