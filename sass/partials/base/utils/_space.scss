@@ -1,5 +1,5 @@
 /**
- * Doubled up margin-bottom.
+ * Doubled up margin-bottom
  */
 .u-landmark {
     @extend %p-doubledSassMarginBottom;
@@ -40,7 +40,7 @@
 }
 
 /**
- * Pull items full width of .Island parents
+ * Pull items full width of `.Island` parents
  */
 .u-fullBleed {
     margin-right: _em(-$base-spacing-unit) !important;
