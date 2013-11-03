@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Media component
+   ========================================================================== */
+/**
+ * Place any image- and text-like content side-by-side
+ *
+ * <div class="Media">
+ *     <img src="http://placekitten.com/200/300" alt="" class="Media-img">
+ *     <p class="Media-body">Lorem ipsum dolor sit amet.</p>
+ * </div>
+ */
+.Media {
+    @extend .u-cf;
+    display: block;
+}
+
+    .Media-img {
+        float: left;
+        margin-right: _em($base-spacing-unit);
+    }
+
+    /**
+     * Reversed image location (right instead of left)
+     */
+    .Media-img--rev {
+        float: right;
+        margin-left: _em($base-spacing-unit);
+    }
+
+        .Media-img img,
+        .Media-img--rev img {
+            display: block;
+        }
+
+    .Media-body {
+        @extend .u-bfcAlt;
+        vertical-align: top;
+
+        &,
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+/**
+ * Size modifiers
+ * http://v.gd/xpHktl
+ */
+.Media--small {
+    > .Media-img {
+        margin-right: _em($half-spacing-unit);
+    }
+    > .Media-img--rev {
+        margin-left: _em($half-spacing-unit);
+    }
+}
+
+/**
+ * Responsive media object
+ */
+@include crp-Media-max-width($crp-Media-size-s - 1) {
+    .Media--responsive {
+        > .Media-img,
+        > .Media-img--rev {
+            @include rem(margin-bottom, $base-spacing-unit);
+            float: none;
+            display: block;
+
+            &,
+            img {
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+/**
+ * `.Media-img` in `.Islet` need an appropriately sized margin
+ */
+.Islet {
+    .media__img {
+        margin-right: _em($half-spacing-unit);
+    }
+
+    .media__img--rev {
+        margin-left: _em($half-spacing-unit);
+    }
+}

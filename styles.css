@@ -727,7 +727,7 @@ hr,
 
 /*
  * Opera hack
- * .opera-only - is dummy selector
+ * `.opera-only` = dummy selector
  */
 
 .opera-only :-o-prefocus,
@@ -804,32 +804,57 @@ dd {
 
 /**
  * Contain floats
- * http://nicolasgallagher.com/micro-clearfix-hack/
+ * http://v.gd/Zi21nO
  */
 
 .u-cf,
-.Nav {
+.Nav,
+.Media,
+.Island,
+.Islet {
   *zoom: 1;
 }
 
 .u-cf:before,
 .Nav:before,
+.Media:before,
+.Island:before,
+.Islet:before,
 .u-cf:after,
-.Nav:after {
+.Nav:after,
+.Media:after,
+.Island:after,
+.Islet:after {
   display: table;
   content: " ";
   line-height: 0;
 }
 
 .u-cf:after,
-.Nav:after {
+.Nav:after,
+.Media:after,
+.Island:after,
+.Islet:after {
   clear: both;
 }
 
-.u-cfOverflow {
+/**
+ * New block formatting context
+ * Element won't wrap under floats. It will also contain any floated children
+ */
+
+.u-bfc {
   overflow: hidden;
-  zoom: 1;
   *overflow: visible;
+  *zoom: 1;
+}
+
+.u-bfcAlt,
+.Media-body {
+  display: table-cell;
+  width: 10000px;
+  *width: auto;
+  *zoom: 1;
 }
 
 /**
@@ -866,7 +891,7 @@ dd {
 }
 
 /**
- * Doubled up margin-bottom.
+ * Doubled up margin-bottom
  */
 
 /**
@@ -910,7 +935,7 @@ dd {
 }
 
 /**
- * Pull items full width of .Island parents
+ * Pull items full width of `.Island` parents
  */
 
 .u-fullBleed {
@@ -955,9 +980,21 @@ dd {
 }
 
 /**
+ * Text hyphenation
+ */
+
+.u-textHyphenate {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/**
  * Make an ellipsis in case the string is too long for its container
  *
- * Set the width of the .ellipsis element to suit your needs
+ * Set the width of the `.ellipsis` element to suit your needs
  */
 
 .u-textEllipsis {
@@ -1002,6 +1039,33 @@ dd {
 
 .u-textMute {
   color: grey;
+}
+
+/**
+ * Expose text (http://v.gd/fqIiTg)
+ * Hides/shows text (use case: "read more" link)
+ *
+ * When `u-textExposed` has class `u-textExposed--expose`:
+ * Shows `u-textExposed-show`
+ * Hides `u-textExposed-hide`
+ */
+
+.u-textExposed {
+  display: inline;
+}
+
+.u-textExposed-show {
+  display: none;
+}
+
+.no-js .u-textExposed-hide,
+.u-textExposed--expose .u-textExposed-hide {
+  display: none;
+}
+
+.no-js .u-textExposed-show,
+.u-textExposed--expose .u-textExposed-show {
+  display: inline;
 }
 
 /* Dimension utilities
@@ -1563,6 +1627,150 @@ dd {
 }
 
 /* ==========================================================================
+   Media component
+   ========================================================================== */
+
+/**
+ * Place any image- and text-like content side-by-side
+ *
+ * <div class="Media">
+ *     <img src="http://placekitten.com/200/300" alt="" class="Media-img">
+ *     <p class="Media-body">Lorem ipsum dolor sit amet.</p>
+ * </div>
+ */
+
+.Media {
+  display: block;
+}
+
+.Media-img {
+  float: left;
+  margin-right: 1.5em;
+}
+
+/**
+ * Reversed image location (right instead of left)
+ */
+
+.Media-img--rev {
+  float: right;
+  margin-left: 1.5em;
+}
+
+.Media-img img,
+.Media-img--rev img {
+  display: block;
+}
+
+.Media-body {
+  vertical-align: top;
+}
+
+.Media-body,
+.Media-body > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Size modifiers
+ * http://v.gd/xpHktl
+ */
+
+.Media--small > .Media-img {
+  margin-right: 0.75em;
+}
+
+.Media--small > .Media-img--rev {
+  margin-left: 0.75em;
+}
+
+/**
+ * Responsive media object
+ */
+
+@media (max-width: 29.9375em) {
+  .Media--responsive > .Media-img,
+  .Media--responsive > .Media-img--rev {
+    display: block;
+    float: none;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+  }
+
+  .Media--responsive > .Media-img,
+  .Media--responsive > .Media-img img,
+  .Media--responsive > .Media-img--rev,
+  .Media--responsive > .Media-img--rev img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/**
+ * `.Media-img` in `.Islet` need an appropriately sized margin
+ */
+
+.Islet .media__img {
+  margin-right: 0.75em;
+}
+
+.Islet .media__img--rev {
+  margin-left: 0.75em;
+}
+
+/* ==========================================================================
+   Island component
+   ========================================================================== */
+
+/**
+ * Simple, boxed off content
+ *
+ * <div class="Island">
+ *     I am boxed off.
+ * </div>
+ */
+
+.Island,
+.Islet {
+  display: block;
+}
+
+.Island > :last-child,
+.Islet > :last-child {
+  margin-bottom: 0;
+}
+
+.Island {
+  padding: 1.5em;
+}
+
+/**
+ * Just like `.Island`, only smaller
+ */
+
+.Islet {
+  padding: 0.75em;
+}
+
+/**
+ * Cosmetic modifiers
+ */
+
+.Island--raised,
+.Islet--raised {
+  border-radius: 0.375em;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(32, 32, 32, 0.15), 0 1px 1px rgba(32, 32, 32, 0.25), 0 2px 1px rgba(32, 32, 32, 0.15);
+}
+
+.Island--sunken,
+.Islet--sunken {
+  border-radius: 0.375em;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px rgba(32, 32, 32, 0.15), inset 0 1px 0.75em rgba(32, 32, 32, 0.1);
+}
+
+/* ==========================================================================
    Button component
    ========================================================================== */
 
@@ -1738,7 +1946,8 @@ dd {
   overflow: hidden;
   width: 1px;
   height: 1px;
+  margin: -1px;
   padding: 0;
   border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(0 0 0 0);
 }
