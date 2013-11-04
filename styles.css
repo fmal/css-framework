@@ -1071,6 +1071,21 @@ dd {
 /* Dimension utilities
    ========================================================================== */
 
+/**
+ * Make an element the width of its parent
+ */
+
+.u-sizeFull {
+  display: block !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/**
+ * Proportional widths
+ */
+
 .u-size1of2,
 .u-size2of4 {
   width: 50% !important;

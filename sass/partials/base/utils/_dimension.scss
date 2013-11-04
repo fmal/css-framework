@@ -1,5 +1,17 @@
 /* Dimension utilities
    ========================================================================== */
+/**
+ * Make an element the width of its parent
+ */
+.u-sizeFull {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/**
+ * Proportional widths
+ */
 @include proportional-units(
     2 3 4,
     $class-slug: 'u-size'
