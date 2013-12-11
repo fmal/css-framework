@@ -1,0 +1,7 @@
+{
+  "name": "css-framework",
+  "version": "0.0.1",
+  "dependencies": {
+    "normalize-scss": "~2.1.2"
+  }
+}

@@ -1,7 +1,7 @@
 *.DS_Store
-.sass-cache/
-node_modules/
-/sass/bourbon/
-cmq/
-*.sublime-project
-*.sublime-workspace
+*.sass-cache
+*.sublime-*
+node_modules
+components
+sass/bourbon
+cmq
