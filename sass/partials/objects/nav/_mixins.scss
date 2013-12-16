@@ -7,8 +7,11 @@
         &,
         > a{
             display: inline-block;
-           *display: inline;
-            zoom: 1;
+
+            @include old-ie {
+               *display: inline;
+                zoom: 1;
+            }
         }
     }
 }

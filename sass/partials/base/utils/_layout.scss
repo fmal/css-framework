@@ -26,7 +26,9 @@
         clear: both;
     }
 
-    *zoom: 1;
+    @include old-ie {
+        *zoom: 1;
+    }
 }
 
 /**
@@ -35,15 +37,21 @@
  */
 .u-bfc {
     overflow: hidden;
-   *overflow: visible;
-   *zoom: 1;
+
+    @include old-ie {
+       *overflow: visible;
+       *zoom: 1;
+    }
 }
 
 .u-bfcAlt {
     display: table-cell;
     width: 10000px;
-   *width: auto;
-   *zoom: 1;
+
+    @include old-ie {
+        *width: auto;
+        *zoom: 1;
+    }
 }
 
 /**
