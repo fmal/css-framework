@@ -1,0 +1,5 @@
+// Opacity mixin (IE 8 opacity)
+@mixin opacity($val) {
+    opacity: $val;
+    -ms-filter: "alpha(opacity=#{$val * 100})";
+}
