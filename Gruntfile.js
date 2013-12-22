@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     // Release task
     grunt.registerTask('release', [
         'sass',
-        'autoprexifer',
+        'autoprefixer',
         'csscomb',
         'cmq',
         'csso'
