@@ -53,6 +53,11 @@ module Sass::Script::Functions
 
         Sass::Script::String.new(contents)
     end
-
     declare :url64, :args => [:string]
+
+    def string64(string)
+        assert_type string, :String
+        Sass::Script::String.new(Base64.encode64(string.value).gsub("\n",""))
+    end
+    declare :string64, :args => [:string]
 end

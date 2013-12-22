@@ -1,0 +1,148 @@
+// Gradient mixin
+// @see http://v.gd/SBORcx
+//
+// Examples:
+// @include gradient((lighten($std-table-color, 10%), 0%, darken($std-table-color, 1%), 100%));
+// @include gradient(
+//     $nodes: (color($white, 0), 0%, $white, 50%, $white, 100%),
+//     $direction: 'to bottom',
+//     $use-background-fallback: false
+// );
+// =============================================================================
+
+@mixin gradient(
+    $nodes: (#f6f8f9, 0%, #e5ebee, 50%, #d7dee3, 50%, #f2f5f7, 100%),
+    $direction: 'to bottom',
+    $repeating: false,
+    $use-background-fallback: true
+) {
+    $fallback: '';
+    $std-direction: '';
+    $x1: '';
+    $x2: '';
+    $y1: '';
+    $y2: '';
+    $css: '';
+    $svg-nodes: '';
+    $x: 0;
+
+    @if ($direction == 'to bottom' or $direction == 'top' or $direction == '180deg' or $direction == 180deg) {
+        $std-direction: to bottom;
+        $x1: 0%;
+        $y1: 0%;
+        $x2: 0%;
+        $y2: 100%;
+    }
+    @else if ($direction == 'to top' or $direction == 'bottom' or $direction == '0deg' or $direction == 0deg) {
+        $std-direction: to top;
+        $x1: 100%;
+        $y1: 100%;
+        $x2: 100%;
+        $y2: 0%;
+    }
+    @else if ($direction == 'to left' or $direction == 'right' or $direction == '270deg' or $direction == 270deg) {
+        $std-direction: to left;
+        $x1: 100%;
+        $y1: 100%;
+        $x2: 0%;
+        $y2: 100%;
+    }
+    @else if ($direction == 'to right' or $direction == 'left' or $direction == '90deg' or $direction == 90deg) {
+        $std-direction: to right;
+        $x1: 0%;
+        $y1: 0%;
+        $x2: 100%;
+        $y2: 0%;
+    }
+    @else {
+        $std-direction: $direction;
+
+        @if ($direction == 10deg) {
+            $x1: 0%;
+            $y1: 100%;
+            $x2: 100%;
+            $y2: 0%;
+        }
+        @else if ($direction == 45deg) {
+            $x1: 0%;
+            $y1: 45%;
+            $x2: 100%;
+            $y2: 0%;
+        }
+        @else if ($direction == 135deg) {
+            $x1: 0%;
+            $y1: 0%;
+            $x2: 100%;
+            $y2: 45%;
+        }
+        @else if ($direction == 170deg) {
+            $x1: 0%;
+            $y1: 0%;
+            $x2: 100%;
+            $y2: 100%;
+        }
+        @else if ($direction == 190deg) {
+            $x1: 100%;
+            $y1: 0%;
+            $x2: 0%;
+            $y2: 100%;
+        }
+        @else if ($direction == 225deg) {
+            $x1: 100%;
+            $y1: 0%;
+            $x2: 0%;
+            $y2: 45%;
+        }
+        @else if ($direction == 315deg) {
+            $x1: 100%;
+            $y1: 45%;
+            $x2: 0%;
+            $y2: 0%;
+        }
+        @else if ($direction == 350deg) {
+            $x1: 100%;
+            $y1: 100%;
+            $x2: 0%;
+            $y2: 0%;
+        }
+        @else {
+            $x1: 0%;
+            $y1: 0%;
+            $x2: 0%;
+            $y2: 100%;
+        }
+    }
+
+    @if (length($nodes) > 1) {
+        @for $i from 0 to length($nodes) {
+            @if ($i % 2 == 0) {
+                $css: $css + ', ' + nth($nodes, ($i + 1));
+                $svg-nodes: $svg-nodes + '<stop stop-color="' + nth($nodes, ($i + 1)) + '"';
+            }
+            @else {
+                $css: $css + ' ' + nth($nodes, ($i + 1));
+                $svg-nodes: $svg-nodes + ' offset="' + clean(nth($nodes, ($i + 1)))/100 + '"/>';
+            }
+            $x: $i;
+        }
+
+        $fallback: nth($nodes, $x);
+        $css: unquote($css);
+        $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"><linearGradient id="g522" gradientUnits="userSpaceOnUse" x1="' + $x1 + '" y1="' + $y1 + '" x2="' + $x2 + '" y2="' + $y2 + '">' + $svg-nodes + '</linearGradient><rect x="0" y="0" width="1" height="1" fill="url(#g522)"/></svg>';
+
+        @if ($use-background-fallback == true) {
+            background-color: $fallback;
+        }
+
+        @if ($repeating == false) {
+            background-image: url('data:image/svg+xml;base64,' + string64($svg));
+            background-image: linear-gradient($std-direction + $css);
+        }
+        @else {
+            background-image: repeating-linear-gradient($std-direction + $css);
+        }
+    }
+    @else {
+        background-color: $nodes;
+    }
+}

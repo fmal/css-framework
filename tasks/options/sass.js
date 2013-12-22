@@ -11,7 +11,9 @@ module.exports = {
             style: 'expanded',
             unixNewlines: true,
             precision: 7,
-            require: [config.paths.scss + '/helpers/url64.rb']
+            require: [
+                config.paths.scss + '/helpers/b64.rb'
+            ]
         },
         expand: true,
         cwd: config.paths.scss,
