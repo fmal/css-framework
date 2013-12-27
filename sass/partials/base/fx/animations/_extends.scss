@@ -1,0 +1,31 @@
+%p-fillBoth {
+    animation-fill-mode: both;
+}
+
+%p-fx-slideDown {
+    animation-name: slideDown;
+    animation-duration: 1s;
+}
+
+%p-fx-slideUp {
+    animation-name: slideUp;
+    animation-duration: 1s;
+}
+
+%p-fx-pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+%p-fx-pop {
+    animation-name: pop;
+    animation-duration: .75s;
+    animation-timing-function: ease-in;
+}
+
+%p-fx-fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+}

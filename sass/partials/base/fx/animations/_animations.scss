@@ -1,0 +1,29 @@
+/* Animations
+   ========================================================================== */
+@import "extends";
+@import "keyframes";
+
+.fx-slideDown {
+    @extend %p-fx-slideDown;
+    @extend %p-fillBoth;
+}
+
+.fx-slideUp {
+    @extend %p-fx-slideUp;
+    @extend %p-fillBoth;
+}
+
+.fx-pulse {
+    @extend %p-fx-pulse;
+    @extend %p-fillBoth;
+}
+
+.fx-fadeIn {
+    @extend %p-fx-fadeIn;
+    @extend %p-fillBoth;
+}
+
+.fx-pop {
+    @extend %p-fx-pop;
+    @extend %p-fillBoth;
+}
