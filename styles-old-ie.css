@@ -29,7 +29,15 @@
   opacity: 1;
 }
 
-/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   Normalize.scss settings
+   ========================================================================== */
+
+/**
+ * Includes legacy browser support IE6/7
+ *
+ * Set to false if you want to drop support for IE6 and IE7
+ */
 
 /* ==========================================================================
    HTML5 display definitions
@@ -47,14 +55,15 @@ figure,
 footer,
 header,
 hgroup,
+main,
 nav,
 section,
 summary {
   display: block;
 }
 
-/*
- * Corrects `inline-block` display not defined in IE 8/9.
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
 
 audio,
@@ -63,7 +72,7 @@ video {
   display: inline-block;
 }
 
-/*
+/**
  * Prevents modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
@@ -73,11 +82,13 @@ audio:not([controls]) {
   height: 0;
 }
 
-/*
- * Addresses styling for `hidden` attribute not present in IE 8/9.
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
 
-[hidden] {
+[hidden],
+template {
   display: none;
 }
 
@@ -85,23 +96,24 @@ audio:not([controls]) {
    Base
    ========================================================================== */
 
-/*
- * 1. Sets default font family to sans-serif.
- * 2. Prevents iOS text size adjust after orientation change, without disabling
- *    user zoom.
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ * 3.Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
  */
 
 html {
   font-family: sans-serif;
   /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
   -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
   /* 2 */
 }
 
-/*
- * Removes default margin.
+/**
+ * Remove default margin.
  */
 
 body {
@@ -112,17 +124,25 @@ body {
    Links
    ========================================================================== */
 
-/*
- * Addresses `outline` inconsistency between Chrome and other browsers.
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+/**
+ * Improves readability when focused and also mouse hovered in all browsers.
  */
 
 a:focus {
   outline: thin dotted;
 }
-
-/*
- * Improves readability when focused and also mouse hovered in all browsers.
- */
 
 a:active,
 a:hover {
@@ -133,25 +153,27 @@ a:hover {
    Typography
    ========================================================================== */
 
-/*
- * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
- * Safari 5, and Chrome.
+/**
+ * Addresses font sizes and margins set differently in IE 6/7.
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
  */
 
 h1 {
+  margin: 0.67em 0;
   font-size: 2em;
 }
 
-/*
- * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
 
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/*
- * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
 
 b,
@@ -159,15 +181,25 @@ strong {
   font-weight: bold;
 }
 
-/*
- * Addresses styling not present in Safari 5 and Chrome.
+/**
+ * Address styling not present in Safari 5 and Chrome.
  */
 
 dfn {
   font-style: italic;
 }
 
-/*
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
  * Addresses styling not present in IE 8/9.
  */
 
@@ -176,8 +208,12 @@ mark {
   color: #000;
 }
 
-/*
- * Corrects font family set oddly in Safari 5 and Chrome.
+/**
+ * Addresses margins set differently in IE 6/7.
+ */
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
  */
 
 code,
@@ -188,34 +224,32 @@ samp {
   font-family: monospace, serif;
 }
 
-/*
- * Improves readability of pre-formatted text in all browsers.
+/**
+ * Improve readability of pre-formatted text in all browsers.
  */
 
 pre {
-  white-space: pre;
   white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
-/*
- * Sets consistent quote types.
+/**
+ *  Set consistent quote types.
  */
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/*
- * Addresses inconsistent and variable font size in all browsers.
+/**
+ * Address inconsistent and variable font size in all browsers.
  */
 
 small {
   font-size: 80%;
 }
 
-/*
- * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
 
 sub,
@@ -238,16 +272,17 @@ sub {
    Embedded content
    ========================================================================== */
 
-/*
- * Removes border when inside `a` element in IE 8/9.
+/**
+ * 1. Remove border when inside `a` element in IE 8/9.
+ * 2. Improves image quality when scaled in IE 7.
  */
 
 img {
   border: 0;
 }
 
-/*
- * Corrects overflow displayed oddly in IE 9.
+/**
+ * Correct overflow displayed oddly in IE 9.
  */
 
 svg:not(:root) {
@@ -258,8 +293,8 @@ svg:not(:root) {
    Figures
    ========================================================================== */
 
-/*
- * Addresses margin not present in IE 8/9 and Safari 5.
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
  */
 
 figure {
@@ -270,7 +305,7 @@ figure {
    Forms
    ========================================================================== */
 
-/*
+/**
  * Define consistent border, margin, and padding.
  */
 
@@ -280,9 +315,11 @@ fieldset {
   border: 1px solid #c0c0c0;
 }
 
-/*
- * 1. Corrects color not being inherited in IE 8/9.
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Corrects text not wrapping in Firefox 3.
+ * 4. Corrects alignment displayed oddly in IE 6/7.
  */
 
 legend {
@@ -292,10 +329,11 @@ legend {
   /* 2 */
 }
 
-/*
- * 1. Corrects font family not being inherited in all browsers.
- * 2. Corrects font size not being inherited in all browsers.
- * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 4. Improves appearance and consistency in all browsers.
  */
 
 button,
@@ -310,8 +348,8 @@ textarea {
   /* 3 */
 }
 
-/*
- * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
 
@@ -320,12 +358,26 @@ input {
   line-height: normal;
 }
 
-/*
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
  *    and `video` controls.
- * 2. Corrects inability to style clickable `input` types in iOS.
- * 3. Improves usability and consistency of cursor style between image-type
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
  */
 
 button,
@@ -338,18 +390,19 @@ input[type="submit"] {
   /* 3 */
 }
 
-/*
+/**
  * Re-set default cursor for disabled elements.
  */
 
 button[disabled],
-input[disabled] {
+html input[disabled] {
   cursor: default;
 }
 
-/*
- * 1. Addresses box sizing set to `content-box` in IE 8/9.
- * 2. Removes excess padding in IE 8/9.
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 7/8/9/10.
+ *    Known issue: excess padding remains in IE 6.
  */
 
 input[type="checkbox"],
@@ -361,9 +414,9 @@ input[type="radio"] {
   /* 2 */
 }
 
-/*
- * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
 
@@ -375,8 +428,8 @@ input[type="search"] {
   -webkit-appearance: textfield;
 }
 
-/*
- * Removes inner padding and search cancel button in Safari 5 and Chrome
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
 
@@ -385,8 +438,8 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/*
- * Removes inner padding and border in Firefox 4+.
+/**
+ * Remove inner padding and border in Firefox 4+.
  */
 
 button::-moz-focus-inner,
@@ -395,9 +448,9 @@ input::-moz-focus-inner {
   border: 0;
 }
 
-/*
- * 1. Removes default vertical scrollbar in IE 8/9.
- * 2. Improves readability and alignment in all browsers.
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
  */
 
 textarea {
@@ -411,13 +464,317 @@ textarea {
    Tables
    ========================================================================== */
 
-/*
+/**
  * Remove most spacing between table cells.
  */
 
 table {
   border-spacing: 0;
   border-collapse: collapse;
+}
+
+/* ==========================================================================
+   Fx (Animations & transitions)
+   ========================================================================== */
+
+/* Animations
+   ========================================================================== */
+
+.fx-slideDown,
+.fx-slideUp,
+.fx-pulse,
+.fx-fadeIn,
+.fx-pop {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fx-slideDown {
+  -webkit-animation-name: slideDown;
+  animation-name: slideDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fx-slideUp {
+  -webkit-animation-name: slideUp;
+  animation-name: slideUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fx-pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.fx-pop {
+  -webkit-animation-name: pop;
+  animation-name: pop;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+
+.fx-fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+/* Keyframes
+   ========================================================================== */
+
+/**
+ * slideDown
+ */
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  50% {
+    -webkit-transform: translateY(8%);
+    transform: translateY(8%);
+  }
+
+  65% {
+    -webkit-transform: translateY(-4%);
+    transform: translateY(-4%);
+  }
+
+  80% {
+    -webkit-transform: translateY(4%);
+    transform: translateY(4%);
+  }
+
+  95% {
+    -webkit-transform: translateY(-2%);
+    transform: translateY(-2%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  50% {
+    -webkit-transform: translateY(8%);
+    transform: translateY(8%);
+  }
+
+  65% {
+    -webkit-transform: translateY(-4%);
+    transform: translateY(-4%);
+  }
+
+  80% {
+    -webkit-transform: translateY(4%);
+    transform: translateY(4%);
+  }
+
+  95% {
+    -webkit-transform: translateY(-2%);
+    transform: translateY(-2%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/**
+ * slideUp
+ */
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-8%);
+    transform: translateY(-8%);
+  }
+
+  65% {
+    -webkit-transform: translateY(4%);
+    transform: translateY(4%);
+  }
+
+  80% {
+    -webkit-transform: translateY(-4%);
+    transform: translateY(-4%);
+  }
+
+  95% {
+    -webkit-transform: translateY(2%);
+    transform: translateY(2%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-8%);
+    transform: translateY(-8%);
+  }
+
+  65% {
+    -webkit-transform: translateY(4%);
+    transform: translateY(4%);
+  }
+
+  80% {
+    -webkit-transform: translateY(-4%);
+    transform: translateY(-4%);
+  }
+
+  95% {
+    -webkit-transform: translateY(2%);
+    transform: translateY(2%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/**
+ * pulse
+ */
+
+@-webkit-keyframes pulse {
+  0%, 100% {
+    opacity: .7;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: .7;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/**
+ * fadeIn
+ */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/**
+ * pop
+ */
+
+@-webkit-keyframes pop {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 /* ==========================================================================
@@ -620,6 +977,18 @@ blockquote:before {
 }
 
 /* ==========================================================================
+   Tables
+   ========================================================================== */
+
+.Table {
+  width: 100%;
+}
+
+.Table--fixed {
+  table-layout: fixed;
+}
+
+/* ==========================================================================
    Shared
    ========================================================================== */
 
@@ -657,6 +1026,7 @@ h3,
   font-family: "freight-sans-pro-n6", "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.Table,
 h1,
 h2,
 hgroup,
@@ -672,12 +1042,10 @@ figure,
 hr,
 .Notification {
   margin-bottom: 24px;
-  margin-bottom: 1.5rem;
 }
 
 .u-landmark {
   margin-bottom: 48px;
-  margin-bottom: 3rem;
 }
 
 /**
@@ -754,7 +1122,6 @@ ul,
 ol,
 dd {
   margin-left: 48px;
-  margin-left: 3rem;
 }
 
 /* ==========================================================================
@@ -1406,16 +1773,12 @@ dd {
 
 .Grid--withGutter {
   margin-right: -12px;
-  margin-right: -0.75rem;
   margin-left: -12px;
-  margin-left: -0.75rem;
 }
 
 .Grid--withGutter > .Grid-cell {
   padding-right: 12px;
-  padding-right: 0.75rem;
   padding-left: 12px;
-  padding-left: 0.75rem;
 }
 
 /**
