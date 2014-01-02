@@ -27,3 +27,8 @@
     @extend %p-fx-pop;
     @extend %p-fillBoth;
 }
+
+.fx-wobble {
+    @extend %p-fx-wobble;
+    @extend %p-fillBoth;
+}
