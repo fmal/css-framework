@@ -32,3 +32,8 @@
     @extend %p-fx-wobble;
     @extend %p-fillBoth;
 }
+
+.fx-bobble {
+    @extend %p-fx-bobble;
+    @extend %p-fillBoth;
+}
