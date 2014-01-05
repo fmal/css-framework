@@ -504,7 +504,9 @@ table {
 .fx-slideUp,
 .fx-pulse,
 .fx-fadeIn,
-.fx-pop {
+.fx-pop,
+.fx-wobble,
+.fx-bobble {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -548,6 +550,26 @@ table {
   animation-duration: 1.5s;
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
+}
+
+.fx-wobble {
+  -webkit-animation-name: wobble;
+  animation-name: wobble;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.fx-bobble {
+  -webkit-animation-name: bobble;
+  animation-name: bobble;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: cubic-bezier(0.6, 1, 1, 1);
+  animation-timing-function: cubic-bezier(0.6, 1, 1, 1);
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 /* Keyframes
@@ -794,6 +816,98 @@ table {
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+/**
+ * wobble
+ */
+
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform: translateX(0%) rotate(0deg);
+    transform: translateX(0%) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translateX(-1%) rotate(-1deg);
+    transform: translateX(-1%) rotate(-1deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(1%) rotate(1deg);
+    transform: translateX(1%) rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%) rotate(0deg);
+    transform: translateX(0%) rotate(0deg);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    -webkit-transform: translateX(0%) rotate(0deg);
+    transform: translateX(0%) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translateX(-1%) rotate(-1deg);
+    transform: translateX(-1%) rotate(-1deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(1%) rotate(1deg);
+    transform: translateX(1%) rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%) rotate(0deg);
+    transform: translateX(0%) rotate(0deg);
+  }
+}
+
+/**
+ * bobble
+ */
+
+@-webkit-keyframes bobble {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  35% {
+    opacity: 1;
+    -webkit-transform: translateY(-1.5em);
+    transform: translateY(-1.5em);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bobble {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  35% {
+    opacity: 1;
+    -webkit-transform: translateY(-1.5em);
+    transform: translateY(-1.5em);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
