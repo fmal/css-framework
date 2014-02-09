@@ -1,0 +1,7 @@
+@mixin drop-out($selector, $excludes: "all") {
+    @at-root (without #{$excludes}) {
+        #{$selector} {
+            @content;
+        }
+    }
+}
