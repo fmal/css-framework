@@ -14,6 +14,12 @@
 .u-pushBottom {
     margin-bottom: _em($base-spacing-unit) !important;
 }
+.u-pushHalfTop {
+    margin-top: _em($half-spacing-unit) !important;
+}
+.u-pushHalfButtom {
+    margin-bottom: _em($half-spacing-unit) !important;
+}
 
 .u-flushTop {
     margin-top: 0 !important;
@@ -30,6 +36,12 @@
 }
 .u-softBottom {
     padding-bottom: _em($base-spacing-unit) !important;
+}
+.u-softHalfTop {
+    padding-top: _em($half-spacing-unit) !important;
+}
+.u-softHalfBottom {
+    padding-bottom: _em($half-spacing-unit) !important;
 }
 
 .u-hardTop {
