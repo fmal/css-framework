@@ -15,7 +15,8 @@ a {
         outline-offset: -2px;
         color: $focus-link-color;
     }
-    &:active {
+    &:active,
+    [aria-pressed] {
         color: $active-link-color;
     }
     &:active,
