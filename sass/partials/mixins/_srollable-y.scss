@@ -1,0 +1,6 @@
+// Smooth scrolling on iOS
+@mixin scrollable-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
