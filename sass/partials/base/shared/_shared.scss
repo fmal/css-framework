@@ -18,7 +18,8 @@ ul, ol, dl, blockquote, p, pre, table, fieldset, figure, hr {
     @extend %p-sassMarginBottom;
 }
 
-ul, ol, dl, p, blockquote {
+ul, ol, dl, p, blockquote,
+figcaption, caption, cite {
     hyphens: auto;
 }
 
