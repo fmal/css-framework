@@ -8,4 +8,11 @@ This framework depends on [SASS](http://sass-lang.com/). To install run:
 
     $ gem install sass
 
-Use [Grunt](http://gruntjs.com/) tasks to compile CSS.
+If you'd like to use the available build tools just run
+
+```
+cd css-framework
+npm install -g grunt-cli
+npm install
+grunt release
+```
