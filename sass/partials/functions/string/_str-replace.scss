@@ -1,0 +1,14 @@
+// Return a string with a substring replaced
+@function str-replace(
+    $string,
+    $old,
+    $new: ''
+) {
+    $_i: str-index($string, $old);
+    $_n: str-length($old);
+
+    $_a: str-slice($string, 1, $_i - 1);
+    $_z: str-slice($string, $_i + $_n);
+
+    @return $_a + $new + $_z;
+}
