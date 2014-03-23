@@ -3,7 +3,7 @@
 }
 
 %p-doubledSassMarginBottom {
-    @include rem(margin-bottom, ($base-spacing-unit * 2));
+    @include rem(margin-bottom, double($base-spacing-unit));
 }
 
 /**

@@ -2,7 +2,7 @@
    Button component
    ========================================================================== */
 .Button {
-    @include line-and-height($base-spacing-unit*2);
+    @include line-and-height(double($base-spacing-unit));
     display: inline-block;
     margin: 0;
     padding: _em(0 $half-spacing-unit);

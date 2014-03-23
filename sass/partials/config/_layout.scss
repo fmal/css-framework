@@ -4,4 +4,4 @@
 $gutter-width: $base-line-height;
 
 $base-spacing-unit : $base-line-height;
-$half-spacing-unit : $base-line-height / 2;
+$half-spacing-unit : halve($base-line-height);
