@@ -4,43 +4,36 @@
 @import "keyframes";
 
 .fx-slideDown {
-    @extend
-        %p-fx-slideDown,
-        %p-fillBoth;
+    @extend %p-fx-slideDown;
+    @extend %p-fillBoth;
 }
 
 .fx-slideUp {
-    @extend
-        %p-fx-slideUp,
-        %p-fillBoth;
+    @extend %p-fx-slideUp;
+    @extend %p-fillBoth;
 }
 
 .fx-pulse {
-    @extend
-        %p-fx-pulse,
-        %p-fillBoth;
+    @extend %p-fx-pulse;
+    @extend %p-fillBoth;
 }
 
 .fx-fadeIn {
-    @extend
-        %p-fx-fadeIn,
-        %p-fillBoth;
+    @extend %p-fx-fadeIn;
+    @extend %p-fillBoth;
 }
 
 .fx-pop {
-    @extend
-        %p-fx-pop,
-        %p-fillBoth;
+    @extend %p-fx-pop;
+    @extend %p-fillBoth;
 }
 
 .fx-wobble {
-    @extend
-        %p-fx-wobble,
-        %p-fillBoth;
+    @extend %p-fx-wobble;
+    @extend %p-fillBoth;
 }
 
 .fx-bobble {
-    @extend
-        %p-fx-bobble,
-        %p-fillBoth;
+    @extend %p-fx-bobble;
+    @extend %p-fillBoth;
 }
