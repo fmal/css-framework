@@ -984,7 +984,8 @@ a:focus {
   color: #3c7780;
 }
 
-a:active {
+a:active,
+a [aria-pressed] {
   color: #6aaeb9;
 }
 
@@ -1225,7 +1226,10 @@ ul,
 ol,
 dl,
 p,
-blockquote {
+blockquote,
+figcaption,
+caption,
+cite {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
@@ -1362,6 +1366,14 @@ dd {
   margin-bottom: 1.5em !important;
 }
 
+.u-pushHalfTop {
+  margin-top: 0.75em !important;
+}
+
+.u-pushHalfButtom {
+  margin-bottom: 0.75em !important;
+}
+
 .u-flushTop {
   margin-top: 0 !important;
 }
@@ -1380,6 +1392,14 @@ dd {
 
 .u-softBottom {
   padding-bottom: 1.5em !important;
+}
+
+.u-softHalfTop {
+  padding-top: 0.75em !important;
+}
+
+.u-softHalfBottom {
+  padding-bottom: 0.75em !important;
 }
 
 .u-hardTop {
@@ -1494,7 +1514,7 @@ dd {
 }
 
 .u-textMute {
-  color: grey;
+  color: gray;
 }
 
 /**
@@ -1522,6 +1542,32 @@ dd {
 .no-js .u-textExposed-show,
 .u-textExposed--expose .u-textExposed-show {
   display: inline;
+}
+
+/**
+ * Hanging punctuation
+ *
+ * <p class="u-hangingPunctuation">
+ *     <span class="u-hangingPunctuation-start">“</span> text...
+ * </p>
+ *
+ * <p class="u-hangingPunctuation u-textRight">
+ *     text... <span class="u-hangingPunctuation-end">”</span>
+ * </p>
+ */
+
+.u-hangingPunctuation {
+  position: relative;
+}
+
+.u-hangingPunctuation-start {
+  position: absolute;
+  left: 100%;
+}
+
+.u-hangingPunctuation-end {
+  position: absolute;
+  right: 100%;
 }
 
 /* Dimension utilities
