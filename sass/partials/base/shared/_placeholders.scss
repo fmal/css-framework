@@ -16,6 +16,21 @@
 }
 
 /**
+ * Automatically justify blocks
+ * http://v.gd/BrGHXk
+ */
+%p-alignJustify {
+    text-align: justify;
+    text-justify: distribute-all-lines;
+
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+/**
  * Remove whitespace caused by inline-block
  * https://github.com/yui/yui3/pull/468
  */

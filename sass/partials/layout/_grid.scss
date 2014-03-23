@@ -112,6 +112,14 @@
     text-align: right;
 }
 
+/**
+ * Modifier: automatically justify grid units
+ */
+
+.Grid--alignJustify {
+    @extend %p-alignJustify;
+}
+
 /* Grid cell modifiers
    ========================================================================== */
 
