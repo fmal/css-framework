@@ -22,3 +22,15 @@ li {
         margin-bottom: 0;
     }
 }
+
+/**
+ * Inline list
+ */
+.ListInline {
+    @extend %p-unsetList;
+
+    li {
+        display: inline;
+        white-space: nowrap;
+    }
+}
