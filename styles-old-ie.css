@@ -1017,6 +1017,15 @@ li p:last-child {
   margin-bottom: 0;
 }
 
+/**
+ * Inline list
+ */
+
+.ListInline li {
+  display: inline;
+  white-space: nowrap;
+}
+
 /* ==========================================================================
    Embedded content
    ========================================================================== */
@@ -1167,9 +1176,27 @@ hr,
  * Reset default list styling
  */
 
+.ListInline,
 .u-unsetList {
   margin-left: 0;
+  padding-left: 0;
   list-style: none;
+}
+
+/**
+ * Automatically justify blocks
+ * http://v.gd/BrGHXk
+ */
+
+.Grid--alignJustify {
+  text-align: justify;
+  text-justify: distribute-all-lines;
+}
+
+.Grid--alignJustify:after {
+  display: inline-block;
+  width: 100%;
+  content: "";
 }
 
 /**
@@ -1966,6 +1993,10 @@ dd {
 .Grid--alignRight {
   text-align: right;
 }
+
+/**
+ * Modifier: automatically justify grid units
+ */
 
 /* Grid cell modifiers
    ========================================================================== */
