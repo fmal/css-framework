@@ -61,6 +61,13 @@ $medium-background-color   : $gray;
 $dark-background-color     : color(dark);
 $darkest-background-color  : color($black 20%);
 
+// Border
+// -------------------------
+$border-color           : color(20%);
+$light-border-color     : color(lighter);
+$medium-border-color    : $gray;
+$dark-border-color      : color(dark);
+
 // Buttons
 // -------------------------
 $default-button-background-color : $base-color;
