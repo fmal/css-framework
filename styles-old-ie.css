@@ -1108,8 +1108,51 @@ blockquote:before {
   width: 100%;
 }
 
+.Table th,
+.Table td {
+  padding: 0.375em;
+  padding: 0.75em;
+  text-align: left;
+}
+
+.Table--bordered {
+  border: 1px solid gray;
+  border-collapse: separate;
+  boder-left-width: 0;
+}
+
+.Table--bordered th,
+.Table--bordered td {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.Table--bordered thead:first-child tr:first-child th,
+.Table--bordered tbody:first-child tr:first-child td {
+  border-top-width: 0;
+}
+
+.Table--striped tbody > tr:nth-child(odd) > td,
+.Table--striped tbody > tr:nth-child(odd) > th {
+  background-color: #dfdfdf;
+}
+
+.Table--responsive {
+  max-width: 100%;
+}
+
 .Table--fixed {
   table-layout: fixed;
+}
+
+.Table--scrollable {
+  overflow: auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.Table--scrollable > table {
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -1151,6 +1194,7 @@ h3,
 }
 
 .Table,
+.Table--scrollable,
 h1,
 h2,
 hgroup,
@@ -1225,7 +1269,6 @@ hr,
  * Reset the altered text defaults
  */
 
-.Grid-cell,
 .Nav--block > li {
   word-spacing: normal;
   letter-spacing: normal;
@@ -1901,7 +1944,7 @@ dd {
  * Must only contain `.Grid` or `.Grid-cell` components as children.
  *
  * 1. Ensure consistent default alignment. Switch to 'right' for rtl.
- * 2. Protect against WebKit bug with optimizelegibility.
+ * 2. Remove whitespace.
  */
 
 .Grid {
@@ -1910,7 +1953,7 @@ dd {
   padding: 0;
   text-align: left;
   /* 1 */
-  text-rendering: optimizespeed;
+  font-size: 0;
   /* 2 */
 }
 
@@ -1945,6 +1988,8 @@ dd {
   vertical-align: top;
   /* 2 */
   text-align: left;
+  font-size: 16px;
+  font-size: 1rem;
   /* 3 */
 }
 
