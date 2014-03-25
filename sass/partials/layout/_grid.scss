@@ -24,7 +24,7 @@
  * Must only contain `.Grid` or `.Grid-cell` components as children.
  *
  * 1. Ensure consistent default alignment. Switch to 'right' for rtl.
- * 2. Protect against WebKit bug with optimizelegibility.
+ * 2. Remove whitespace.
  */
 
 .Grid {
@@ -33,7 +33,7 @@
     padding: 0;
     margin: 0;
     text-align: left; /* 1 */
-    text-rendering: optimizespeed; /* 2 */
+    font-size: 0; /* 2 */
 }
 
 /**
@@ -57,7 +57,7 @@
  */
 
 .Grid-cell {
-    @extend %p-spaceless-child;
+    @include font-size();
     box-sizing: border-box;
     width: 100%;
     display: inline-block; /* 1 */
