@@ -74,6 +74,10 @@
     color: $medium-text-color;
 }
 
+.u-textCaps {
+    text-transform: uppercase !important;
+}
+
 /**
  * Expose text (http://v.gd/fqIiTg)
  * Hides/shows text (use case: "read more" link)
