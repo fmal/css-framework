@@ -1,0 +1,46 @@
+/**
+ * Aspect ratios for media objects i.e canvas, iframe, video, svg etc
+ * http://alistapart.com/article/creating-intrinsic-ratios-for-video
+ */
+.AspectRatio {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+    }
+}
+
+/**
+ * 16:9 aspect ratio
+ */
+.AspectRatio--16by9:before {
+    padding-bottom: 56.25%;
+}
+
+/**
+ * 2:1 aspect ratio
+ */
+.AspectRatio--2by1:before {
+    padding-bottom: 50%;
+}
+
+/**
+ * 4:3 aspect ratio
+ */
+.AspectRatio--4by3:before {
+    padding-bottom: 75%;
+}
+
+.AspectRatio-object {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
