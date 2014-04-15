@@ -1276,6 +1276,11 @@ hr,
 }
 
 /**
+ * Vertically align an element
+ * @see http://v.gd/Bs1riG
+ */
+
+/**
  * Dot placeholder (fake borders)
  */
 
@@ -1585,6 +1590,10 @@ dd {
 
 .u-textMute {
   color: gray;
+}
+
+.u-textCaps {
+  text-transform: uppercase !important;
 }
 
 /**
