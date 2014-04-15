@@ -13,7 +13,7 @@
 }
 
 // Set old IE flag if not already defined
-$old-ie: false !default;
+$lt-ie9: false !default;
 
 // Convert any color format to RGBA, with fallback for old IE and optional background color to mix
 // Usage: color-alpha( #abc, 0.5) ) => rgba(170, 187, 204, 0.5) or #d4dde5 for old IE
@@ -37,7 +37,7 @@ $old-ie: false !default;
     }
 
     // Output flat color for IE
-    @if $flat or $old-ie {
+    @if $flat or $lt-ie9 {
         // Return flattened color
         @return color-flatten(rgba($color, $opacity), $bg-color);
     }

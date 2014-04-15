@@ -1,13 +1,13 @@
-$old-ie: false !default;
+$lt-ie9: false !default;
 
 @mixin old-ie {
-    @if $old-ie {
+    @if $lt-ie9 {
         @content;
     }
 }
 
 @mixin not-old-ie {
-    @if not $old-ie {
+    @if not $lt-ie9 {
         @content;
     }
 }

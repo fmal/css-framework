@@ -1,6 +1,9 @@
+// This stylesheet should be included for IE < 9.
+// See index.html for an example.
+
 @charset "utf-8";
 
-$old-ie: true;
+$lt-ie9: true;
 $crp-Media-fix-width: 1040;
 
 // Setup

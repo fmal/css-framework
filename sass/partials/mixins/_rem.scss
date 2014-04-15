@@ -7,7 +7,7 @@
         @if $value == 0 or type-of($value) != number {
             $list: append($list, $value);
         } @else {
-            @if $old-ie {
+            @if $lt-ie9 {
                 $list: append($list, _px($value));
             } @else {
                 $list: append($list, _rem($value));
