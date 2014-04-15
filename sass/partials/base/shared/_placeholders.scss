@@ -58,6 +58,16 @@
 }
 
 /**
+ * Vertically align an element
+ * @see http://v.gd/Bs1riG
+ */
+%p-verticalyAlignCenter {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+/**
  * Dot placeholder (fake borders)
  */
 
