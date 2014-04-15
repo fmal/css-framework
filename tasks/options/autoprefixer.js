@@ -27,7 +27,7 @@ module.exports = {
         options: {
             browsers: ['last 2 versions', 'ie 8', 'ie 7']
         },
-        src: config.paths.styles + '/styles-old-ie.css',
-        dest: config.paths.styles + '/styles-old-ie.css'
+        src: config.paths.styles + '/styles-lt-ie9.css',
+        dest: config.paths.styles + '/styles-lt-ie9.css'
     }
 };
