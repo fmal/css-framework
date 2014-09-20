@@ -1,4 +1,7 @@
 /* ==========================================================================
-   Fx (Animations & transitions)
+   Site wrapper layout
    ========================================================================== */
-@import "animations/animations";
+
+.l-siteWrapper {
+    position: relative;
+}

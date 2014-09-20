@@ -1,12 +1,10 @@
 /* ==========================================================================
    Shared
    ========================================================================== */
-@import "typekit/typekit";
-@import "placeholders";
 
-h1, .BigH,
-h2, .H,
-h3, .SubH {
+h1, .Hdg1,
+h2, .Hdg2,
+h3, .Hdg3 {
     @extend %p-freightSansPro600;
     color: $darker-text-color;
     text-rendering: optimizeLegibility;
@@ -15,7 +13,7 @@ h3, .SubH {
 
 h1, h2, hgroup,
 ul, ol, dl, blockquote, p, pre, table, fieldset, figure, hr {
-    @extend %p-sassMarginBottom;
+    @extend %p-pushDoubleBottom;
 }
 
 ul, ol, dl, p, blockquote,

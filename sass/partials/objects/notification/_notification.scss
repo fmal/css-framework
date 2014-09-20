@@ -2,7 +2,7 @@
    Notification component
    ========================================================================== */
 .Notification {
-    @extend %p-sassMarginBottom;
+    @extend %p-pushBottom;
     position: relative;
     padding: _em($half-spacing-unit $base-spacing-unit);
     border-radius: _em($standard-border-radius);

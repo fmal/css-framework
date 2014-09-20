@@ -1,8 +1,8 @@
-%p-sassMarginBottom {
+%p-pushBottom {
     @include rem(margin-bottom, $base-spacing-unit);
 }
 
-%p-doubledSassMarginBottom {
+%p-pushDoubleBottom {
     @include rem(margin-bottom, double($base-spacing-unit));
 }
 

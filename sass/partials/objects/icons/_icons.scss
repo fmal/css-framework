@@ -7,8 +7,8 @@ $icons: (
     'lastfm' ''
 );
 
-@import "functions";
-@import "mixins";
+@import "_functions";
+@import "_mixins";
 
 .Icon {
     //@include icon;

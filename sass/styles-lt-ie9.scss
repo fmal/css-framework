@@ -7,13 +7,15 @@ $lt-ie9: true;
 $crp-Media-fix-width: 1040;
 
 // Setup
-@import "partials/functions/all";
-@import "partials/config/all";
-@import "partials/mixins/all";
+@import "partials/functions/__functions";
+@import "partials/config/__config";
+@import "partials/mixins/__mixins";
 
-@import "partials/base/all";
-@import "partials/layout/all";
-@import "partials/objects/all";
-@import "partials/ui/all";
-@import "partials/state/state";
-@import "partials/print";
+@import "partials/base/__base";
+@import "partials/shared/__shared";
+@import "partials/utils/__utils";
+@import "partials/layout/__layout";
+@import "partials/objects/__objects";
+@import "partials/ui/__ui";
+@import "partials/state/_state";
+@import "partials/_print";

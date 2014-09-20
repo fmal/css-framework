@@ -2,7 +2,7 @@
  * Doubled up margin-bottom
  */
 .u-landmark {
-    @extend %p-doubledSassMarginBottom;
+    @extend %p-pushDoubleBottom;
 }
 
 /**

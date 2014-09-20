@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .Table {
-    @extend %p-sassMarginBottom;
+    @extend %p-pushBottom;
     width: 100%;
 
     th,
@@ -50,7 +50,7 @@
 }
 
 .Table--scrollable {
-    @extend %p-sassMarginBottom;
+    @extend %p-pushBottom;
     width: 100%;
     overflow: auto;
     overflow-y: hidden;
