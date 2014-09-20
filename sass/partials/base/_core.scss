@@ -40,6 +40,10 @@ body {
     min-height: 100%;
 }
 
+body {
+    //@include baseline-grid();
+}
+
 ::-moz-selection {
     background-color: $selection-background-color;
     text-shadow: none;

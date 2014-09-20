@@ -1,0 +1,25 @@
+// Show a baseline grid
+// only visible when body has `debug` class
+
+@mixin baseline-grid() {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		z-index: 9;
+		display: none;
+		background-image: linear-gradient(to bottom, color($black, 0) 95%, color($black, 0) 100%);
+		background-size: 100% _em($base-line-height);
+	}
+
+	&.debug::after {
+		display: block;
+		pointer-events: none;
+	}
+}
